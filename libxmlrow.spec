@@ -5,7 +5,7 @@
 Summary:	The libxmlrow C library
 Name:		libxmlrow
 Version:	0.2
-Release:	%mkrel 2
+Release:	%mkrel 3
 Group:		System/Libraries
 License:	BSD
 URL:		http://tangent.org/
