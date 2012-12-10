@@ -5,7 +5,7 @@
 Summary:	The libxmlrow C library
 Name:		libxmlrow
 Version:	0.2
-Release:	%mkrel 3
+Release:	4
 Group:		System/Libraries
 License:	BSD
 URL:		http://tangent.org/
@@ -13,7 +13,6 @@ Source0:	http://download.tangent.org/%{name}-%{version}.tar.gz
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
 BuildRequires:	libxml2-devel
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 The libxmlrow C library.
@@ -29,8 +28,8 @@ The libxmlrow C shared library.
 Summary:	Static library and header files for the libxmlrow library
 Group:		Development/C
 Requires:	%{libname} = %{version}-%{release}
-Provides:	%{name}-devel = %{version}-%{release}
-Provides:	xmlrow-devel = %{version}-%{release}
+Provides:	%{name}-devel = %{EVRD}
+Provides:	xmlrow-devel = %{EVRD}
 
 %description -n	%{develname}
 The libxmlrow C library.
@@ -39,39 +38,42 @@ This package contains the static libxmlrow library and its header files.
 
 %prep
 
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %configure2_5x
 %make
 
 %install
-rm -rf %{buildroot}
-
 %makeinstall_std
 
-%if %mdkversion < 200900
-%post -n %{libname} -p /sbin/ldconfig
-%endif
-
-%if %mdkversion < 200900
-%postun -n %{libname} -p /sbin/ldconfig
-%endif
-
-%clean
-rm -rf %{buildroot}
-
 %files -n %{libname}
-%defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog README
 %{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
-%defattr(-,root,root)
 %dir %{_includedir}/%{name}
 %{_includedir}/%{name}/*
 %{_libdir}/*.so
 %{_libdir}/*.a
-%{_libdir}/*.la
 %{_libdir}/pkgconfig/*.pc
 
+
+
+%changelog
+* Fri Dec 10 2010 Oden Eriksson <oeriksson@mandriva.com> 0.2-3mdv2011.0
++ Revision: 620240
+- the mass rebuild of 2010.0 packages
+
+* Mon Sep 14 2009 Thierry Vignaud <tv@mandriva.org> 0.2-2mdv2010.0
++ Revision: 439495
+- rebuild
+
+* Thu Nov 27 2008 Oden Eriksson <oeriksson@mandriva.com> 0.2-1mdv2009.1
++ Revision: 307277
+- fix deps
+- import libxmlrow
+
+
+* Thu Nov 27 2008 Oden Eriksson <oeriksson@mandriva.com> 0.2-1mdv2009.0
+- initial Mandriva package
