@@ -8,7 +8,7 @@ Version:	0.2
 Release:	5
 Group:		System/Libraries
 License:	BSD
-URL:		http://tangent.org/
+URL:		https://tangent.org/
 Source0:	http://download.tangent.org/%{name}-%{version}.tar.gz
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
