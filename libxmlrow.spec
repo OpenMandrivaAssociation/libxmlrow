@@ -10,6 +10,10 @@ Group:		System/Libraries
 License:	BSD
 URL:		https://tangent.org/
 Source0:	http://download.tangent.org/%{name}-%{version}.tar.gz
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	autoconf2.5
 BuildRequires:	libxml2-devel
